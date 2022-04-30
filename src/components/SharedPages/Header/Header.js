@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import './Header.css';
 import Shop from '@iconscout/react-unicons/icons/uil-shop';
 import { NavLink, useNavigate } from 'react-router-dom';
-// import Button from '../../components/Button';
 
 import Bar from '@iconscout/react-unicons/icons/uil-bars';
 import Close from '@iconscout/react-unicons/icons/uil-arrow-down-left';
-// import useFirebase from '../../components/useFirebase';
+import useFirebase from '../../Hooks/useFirebase';
+import Button from '../../Hooks/Button';
+
  
 const Header = () => {
-    // const {user, handleSignOut} = useFirebase();
+    const {user, handleSignOut} = useFirebase();
     const navigate = useNavigate();
 
     let Links = [
@@ -40,7 +41,7 @@ const Header = () => {
                         ))
                     }
                     {
-                        // user ? <div className="" onClick={handleSignOut}><Button>SignOut</Button></div> : <div className="" onClick={() => navigate('/signin')}><Button>SignIn</Button></div>
+                        user ? <div className="" onClick={handleSignOut}><Button>SignOut</Button></div> : <div className="" onClick={() => navigate('/signin')}><Button>SignIn</Button></div>
                     }
                     
                 </ul>

@@ -10,6 +10,8 @@ import Header from './components/SharedPages/Header/Header';
 import About from './components/Pages/About/About';
 import Blogs from './components/Pages/Blogs/Blogs';
 import { ToastContainer } from 'react-toastify';
+import RequireAuth from './components/Hooks/RequireAuth';
+import DashBoard from './components/Pages/DashBoard/DashBoard';
 
 function App() {
   return (
@@ -17,9 +19,10 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
+        <Route path='/dashboard' element={<DashBoard/>}/>
         <Route path='/store' element={<Store/>}/>
         <Route path='/blogs' element={<Blogs/>}/>
-        <Route path='/about' element={<About/>}/>
+        <Route path='/about' element={<RequireAuth><About/></RequireAuth>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/signin' element={<SignIn/>}/>
         <Route path='/signup' element={<SignUp/>}/>

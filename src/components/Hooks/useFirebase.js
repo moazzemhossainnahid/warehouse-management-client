@@ -1,5 +1,7 @@
+import { signOut } from 'firebase/auth';
 import { useState } from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 const useFirebase = () => {
@@ -7,13 +9,19 @@ const useFirebase = () => {
     const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle] = useSignInWithGoogle(auth);
     const [signInWithGithub] = useSignInWithGithub(auth);
+    const [user, loading] = useAuthState(auth);
 
     const [passError, setPassError] = useState('');
     const [conPassError, setConPassError] = useState('');
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || '/';
+
     const handleSignupForm = (event) => {
         event.preventDefault();
-        const name = event.target.name.value;
+        // const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         const confirmpassword = event.target.confirmpassword.value;
@@ -32,6 +40,9 @@ const useFirebase = () => {
         }
 
         createUserWithEmailAndPassword(email, password)
+        .then( () => {
+            navigate(from, {replace:true})
+        })
         toast("Submitted Successfully")
         event.target.reset();
 
@@ -43,26 +54,42 @@ const useFirebase = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        signInWithEmailAndPassword(email, password);
+        signInWithEmailAndPassword(email, password)
+        .then(() => {
+            navigate(from, {replace:true})
+        })
         event.target.reset();
         toast('Sign in Successfull')
 
     }
 
     const handleGoogleSignin = () => {
-        signInWithGoogle();
+        signInWithGoogle()
+        .then(() => {
+            navigate(from, {replace:true})
+        })
     }
     const handleGithubSignin = () => {
-        signInWithGithub();
+        signInWithGithub()
+        .then(() => {
+            navigate(from, {replace:true})
+        })
+    }
+
+    const handleSignOut = () => {
+        signOut(auth);
     }
 
     return {
+        user,
+        loading,
         passError,
         conPassError,
         handleSignupForm,
         handleSigninForm,
         handleGoogleSignin,
-        handleGithubSignin
+        handleGithubSignin,
+        handleSignOut
     }
 };
 
