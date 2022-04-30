@@ -1,16 +1,21 @@
 import { signOut } from 'firebase/auth';
 import { useState } from 'react';
-import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 const useFirebase = () => {
-    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
     const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle] = useSignInWithGoogle(auth);
     const [signInWithGithub] = useSignInWithGithub(auth);
     const [user, loading] = useAuthState(auth);
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
+    const [displayName, setdisplayName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [conPassword, setConPassword] = useState('');
     const [passError, setPassError] = useState('');
     const [conPassError, setConPassError] = useState('');
 
@@ -19,18 +24,30 @@ const useFirebase = () => {
 
     let from = location.state?.from?.pathname || '/';
 
+    const handleNameBlur = (event) => {
+        setdisplayName(event.target.value);
+    }
+
+    const handleEmailBlur = (event) => {
+        setEmail(event.target.value);
+    }
+
+    const handlePasswordBlur = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const handleConPassBlur = (event) => {
+        setConPassword(event.target.value);
+    }
+
     const handleSignupForm = (event) => {
         event.preventDefault();
-        // const name = event.target.name.value;
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        const confirmpassword = event.target.confirmpassword.value;
 
         if(password.length < 8){
             setPassError('Password must be at least 8 Charecters');
             setConPassError('');
             return;
-        }else if(password !== confirmpassword){
+        }else if(password !== conPassword){
             setConPassError('Password & Confirm Password Not Matched..!');
             setPassError('');
             return;
@@ -43,7 +60,6 @@ const useFirebase = () => {
         .then( () => {
             navigate(from, {replace:true})
         })
-        toast("Submitted Successfully")
         event.target.reset();
 
     }
@@ -51,15 +67,11 @@ const useFirebase = () => {
     const handleSigninForm = (event) => {
         event.preventDefault();
 
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-
         signInWithEmailAndPassword(email, password)
         .then(() => {
             navigate(from, {replace:true})
         })
         event.target.reset();
-        toast('Sign in Successfull')
 
     }
 
@@ -80,16 +92,26 @@ const useFirebase = () => {
         signOut(auth);
     }
 
+    const handlePasswordReset = async() => {
+        await sendPasswordResetEmail(email);
+        toast('Email Submitted')
+    }
+
     return {
         user,
         loading,
         passError,
         conPassError,
+        handleNameBlur,
+        handleEmailBlur,
+        handlePasswordBlur,
+        handleConPassBlur,
         handleSignupForm,
         handleSigninForm,
         handleGoogleSignin,
         handleGithubSignin,
-        handleSignOut
+        handleSignOut,
+        handlePasswordReset
     }
 };
 

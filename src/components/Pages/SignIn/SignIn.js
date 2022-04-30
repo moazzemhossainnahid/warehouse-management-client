@@ -6,9 +6,10 @@ import './SignIn.css';
 import Google from '../../../images/google-logo.png';
 import Github from '../../../images/github-logo.png';
 import useFirebase from '../../Hooks/useFirebase';
+import { ToastContainer } from 'react-toastify';
 
 const SignIn = () => {
-    const {handleGoogleSignin,handleGithubSignin, handleSigninForm} = useFirebase();
+    const {handleGoogleSignin,handleGithubSignin, handleSigninForm,handlePasswordReset,handleEmailBlur,handlePasswordBlur} = useFirebase();
     const navigate = useNavigate();
     return (
         <div className="block p-6 text-left mx-auto rounded-lg shadow-lg bg-blue-200 max-w-sm">
@@ -16,8 +17,8 @@ const SignIn = () => {
   <form onSubmit={handleSigninForm}>
 
     <div className="form-group mb-6">
-      <label for="exampleInputEmail2" className="form-label inline-block mb-2 text-gray-700">Email Address</label>
-      <input type="email" className="form-control
+      <label htmlFor="exampleInputEmail2" className="form-label inline-block mb-2 text-gray-700">Email Address</label>
+      <input onBlur={handleEmailBlur} type="email" className="form-control
         block
         w-full
         px-3
@@ -35,8 +36,8 @@ const SignIn = () => {
         aria-describedby="emailHelp" name='email' required placeholder="Enter Your Email"/>
     </div>
     <div className="form-group mb-6">
-      <label for="exampleInputPassword2" className="form-label inline-block mb-2 text-gray-700">Password</label>
-      <input type="password" className="form-control block
+      <label htmlFor="exampleInputPassword2" className="form-label inline-block mb-2 text-gray-700">Password</label>
+      <input onBlur={handlePasswordBlur} type="password" className="form-control block
         w-full
         px-3
         py-1.5
@@ -50,7 +51,7 @@ const SignIn = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" required name='password' id="exampleInputPassword2"
-        placeholder="Email Your Password"/>
+        placeholder="Enter Your Password"/>
     </div>
 
     <div className="flex justify-between items-center mb-6">
@@ -58,9 +59,9 @@ const SignIn = () => {
         <input type="checkbox"
           className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
           id="exampleCheck2"/>
-        <label className="form-check-label inline-block text-gray-800" for="exampleCheck2">Remember me</label>
+        <label className="form-check-label inline-block text-gray-800" htmlFor="exampleCheck2">Remember me</label>
       </div>
-      <a href="#!"
+      <a href='#!' onClick={handlePasswordReset}
         className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Forgot
         password?</a>
     </div>
@@ -102,6 +103,7 @@ const SignIn = () => {
         <span className="text-xl">Continue With Github</span>
       </div>
   </div>
+  <ToastContainer/>
 </div>
     );
 };

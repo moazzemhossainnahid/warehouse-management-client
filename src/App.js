@@ -9,7 +9,6 @@ import NotFound from './components/Pages/NotFound/NotFound';
 import Header from './components/SharedPages/Header/Header';
 import About from './components/Pages/About/About';
 import Blogs from './components/Pages/Blogs/Blogs';
-import { ToastContainer } from 'react-toastify';
 import RequireAuth from './components/Hooks/RequireAuth';
 import DashBoard from './components/Pages/DashBoard/DashBoard';
 
@@ -28,7 +27,6 @@ function App() {
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
-      <ToastContainer/>
     </div>
   );
 }
