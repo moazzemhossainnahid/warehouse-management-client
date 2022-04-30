@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 const useFirebase = () => {
     const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const [signInWithGithub] = useSignInWithGithub(auth);
 
     const [passError, setPassError] = useState('');
     const [conPassError, setConPassError] = useState('');
@@ -47,11 +49,20 @@ const useFirebase = () => {
 
     }
 
+    const handleGoogleSignin = () => {
+        signInWithGoogle();
+    }
+    const handleGithubSignin = () => {
+        signInWithGithub();
+    }
+
     return {
         passError,
         conPassError,
         handleSignupForm,
-        handleSigninForm
+        handleSigninForm,
+        handleGoogleSignin,
+        handleGithubSignin
     }
 };
 

@@ -5,13 +5,15 @@ import './SignIn.css';
 // image
 import Google from '../../../images/google-logo.png';
 import Github from '../../../images/github-logo.png';
+import useFirebase from '../../Hooks/useFirebase';
 
 const SignIn = () => {
+    const {handleGoogleSignin,handleGithubSignin, handleSigninForm} = useFirebase();
     const navigate = useNavigate();
     return (
         <div className="block p-6 text-left mx-auto rounded-lg shadow-lg bg-blue-200 max-w-sm">
             <h3 className="text-2xl pb-7 text-center text-red-800">Signin Your Account</h3>
-  <form>
+  <form onSubmit={handleSigninForm}>
 
     <div className="form-group mb-6">
       <label for="exampleInputEmail2" className="form-label inline-block mb-2 text-gray-700">Email Address</label>
@@ -91,11 +93,11 @@ const SignIn = () => {
       <div className="line"></div>
   </div>
   <div className="social pt-5">
-      <div className="google cursor-pointer bg-gray-400 hover:bg-gray-500 hover:text-white border rounded flex justify-center items-center">
+      <div onClick={handleGoogleSignin} className="google cursor-pointer bg-gray-400 hover:bg-gray-500 hover:text-white border rounded flex justify-center items-center">
         <img className='w-1/6' src={Google} alt="" />
         <span className="text-xl">Continue With Google</span>
       </div>
-      <div className="google cursor-pointer mt-2 bg-gray-400 hover:bg-gray-500 hover:text-white border rounded flex justify-center items-center">
+      <div onClick={handleGithubSignin} className="google cursor-pointer mt-2 bg-gray-400 hover:bg-gray-500 hover:text-white border rounded flex justify-center items-center">
         <img className='w-1/6 p-2' src={Github} alt="" />
         <span className="text-xl">Continue With Github</span>
       </div>
