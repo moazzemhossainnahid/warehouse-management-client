@@ -94,12 +94,60 @@ const Blogs = () => {
     
         <div className="container mx-auto px-6 md:px-12 xl:px-32">
           <div className="text-center text-gray-800">
-            <div className="block rounded-lg shadow-lg px-6 py-12 md:py-16 md:px-12" style={{marginTop: '180px', backgroundColor: 'hsla(0, 0%, 100%, 0.8)',backdropFilter: 'saturate(200%) blur(25px)'}}>
-              <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold tracking-tight mb-12">Difference between Javascript and Nodejs <br /></h1>
-              <p className="text-xl">Javascript is a Programming Language</p>
+            <div className="block border rounded-lg shadow-lg px-6 py-12 md:py-16 md:px-12" style={{marginTop: '180px', backgroundColor: 'hsla(0, 0%, 100%, 0.8)',backdropFilter: 'saturate(200%) blur(25px)'}}>
+              <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold tracking-tight text-red-600 mb-12">Difference between Javascript and Nodejs <br /></h1>
+              <p className="text-2xl font-bold text-purple-500">JavaScript</p>
+              <p className="text-xl">JavaScript is a simple programming language that runs in any browser JavaScript Engine.JavaScript is normally used for any client-side activity for one web application.JavaScript running in any engine like Spider monkey (FireFox), JavaScript Core (Safari), V8 (Google Chrome). So JavaScript programming is very easy to write, and put any running environment means proper browser.</p>
+              <p className="text-2xl font-bold text-purple-500 pt-5">NodeJS</p>
+              <p className="text-xl">NodeJS is an interpreter and environment for JavaScript with some specific useful libraries which JavaScript programming can use separately.Node JS is an interpreter or running environment for a JavaScript programming language that holds many excesses, it requires libraries that can easily be accessed from JavaScript programming for better use.Node JS mainly used for accessing or running any operating system for non-blocking operation.</p>
             </div>
           </div>
         </div>
+
+
+        <div className="container mx-auto px-6 md:px-12 xl:px-32">
+          <div className="text-center text-gray-800">
+            <div className="block rounded-lg border shadow-lg px-6 py-12 md:py-16 md:px-12" style={{marginTop: '180px', backgroundColor: 'hsla(0, 0%, 100%, 0.8)',backdropFilter: 'saturate(200%) blur(25px)'}}>
+              <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold tracking-tight text-red-600 mb-12">When should you use nodejs and When should you use MongoDB<br /></h1>
+              <p className="text-2xl font-bold text-purple-500">When should you use nodejs</p>
+              <p className="text-xl">NodeJs is primarily used for non-blocking, event-driven servers.It's used for traditional web sites and back-end API services. it was designed with real-time, push-based architectures in mind.If you have a web application project, you are, most probably, evaluating the pros and cons of building your stack around JavaScript and the tools using it.</p>
+              <p className="text-2xl font-bold text-purple-500 pt-5">When should you use MongoDB</p>
+              <p className="text-xl">MongoDB is the most popular of the new breed of non-relational NoSQL databases. Specifically, it’s a document database, also called a document-oriented database or a document store.MongoDB stores data records as BSON documents. BSON is a binary representation of JSON documents, though it contains more data types than JSON.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-6 md:px-12 xl:px-32">
+          <div className="text-center text-gray-800">
+            <div className="block rounded-lg border shadow-lg px-6 py-12 md:py-16 md:px-12" style={{marginTop: '180px', backgroundColor: 'hsla(0, 0%, 100%, 0.8)',backdropFilter: 'saturate(200%) blur(25px)'}}>
+              <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold tracking-tight text-red-600 mb-12">Differences between sql and nosql databases<br /></h1>
+              <p className="text-2xl font-bold text-purple-500">SQL Database</p>
+              <p className="text-xl">SQL databases are vertically scalable.SQL databases are table-based.SQL databases are better for multi-row transactions.SQL databases use structured query language.SQL databases are relational.</p>
+              <p className="text-2xl font-bold text-purple-500 pt-5">No - SQL Database</p>
+              <p className="text-xl">NoSQL is better for unstructured data like documents or JSON.NoSQL databases are document, key-value, graph, or wide-column stores.NoSQL databases have dynamic schemas for unstructured data.NoSQL databases are horizontally scalable.NoSQL databases are non-relational.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-6 md:px-12 xl:px-32">
+          <div className="text-center text-gray-800">
+            <div className="block rounded-lg border shadow-lg px-6 py-12 md:py-16 md:px-12" style={{marginTop: '180px', backgroundColor: 'hsla(0, 0%, 100%, 0.8)',backdropFilter: 'saturate(200%) blur(25px)'}}>
+              <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold tracking-tight text-red-600 mb-12">What is the purpose of jwt and how does it work<br /></h1>
+              <p className="text-2xl font-bold text-purple-500">What is the Purpose of JWT</p>
+              <p className="text-xl">JWT Means JSON Web Token, is an open standard used to share security information between two parties — a client and a server.Each JWT contains encoded JSON objects, including a set of claims.</p>
+              <p className="text-2xl font-bold text-purple-500 pt-5">How Does JWT Work</p>
+              <p className="text-xl">JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued. <br /> JSON Web Tokens consist of three parts separated by dots (.), which are: 
+              
+              <div className="pt-3">
+              <p className="">1. Header</p>
+              <p className="">2. Payload</p>
+              <p className="">3. Signature</p>
+              </div>
+              </p>
+            </div>
+          </div>
+        </div>
+
       </section>
     );
 };

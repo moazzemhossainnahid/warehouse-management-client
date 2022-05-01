@@ -15,7 +15,7 @@ const Header = () => {
 
     let Links = [
         {name: 'Home', to:'/'},
-        {name: 'Store', to:'/store'},
+        {name: 'Inventory', to:'/inventory'},
         {name: 'Blogs', to:'/blogs'},
         {name: 'About', to:'/about'},
         {name: 'Contact', to:'/contact'}
