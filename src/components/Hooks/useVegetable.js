@@ -5,7 +5,7 @@ const useVegetable = () => {
     useEffect( () => {
         fetch('vegetables.json')
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setVegetables(data))
     }, []);
     return [vegetables, setVegetables];
 };
