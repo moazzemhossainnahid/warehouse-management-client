@@ -1,0 +1,56 @@
+[
+    {   "id": 1,
+        "vegename": "Potato",
+        "photoURL": "https://ibb.co/f8J6X1Z",
+        "description": "Potato plants are herbaceous perennials that grow about 60 cm (24 in) high, depending on variety, with the leaves dying back after flowering, fruiting and tuber formation. They bear white, pink, red, blue, or purple flowers with yellow stamens.",
+        "price": "30",
+        "qantity": "20 kg",
+        "supplier": "Sadeeq Agro Farm"
+    },
+    {   "id": 2,
+        "vegename": "Onion",
+        "photoURL": "https://ibb.co/Lv80qGB",
+        "description": "Onions contain organic sulfur compounds. These compounds are the reason why onions have such a sharp, strong taste and smell. Organic sulfur compounds help reduce the level of cholesterol in your body and may also help break down blood clots, lowering your risk for heart disease and stroke.",
+        "price": "80",
+        "qantity": "20 kg",
+        "supplier": "Hamid Agro Farm"
+    },
+    {   "id": 3,
+        "vegename": "Tomato",
+        "photoURL": "https://ibb.co/3SHW5WV",
+        "description": "The tomato is the edible berry of the plant Solanum lycopersicum, commonly known as the tomato plant. The species originated in western South America and Central America. The Mexican Nahuatl word tomatl gave rise to the Spanish word tomate, from which the English word tomato derived.",
+        "price": "90",
+        "qantity": "20 kg",
+        "supplier": "Sadeeq Agro Farm"
+    },
+    {   "id": 4,
+        "vegename": "Corn",
+        "photoURL": "https://ibb.co/RpsFf3z",
+        "description": "Corn is a tall annual cereal grass (Zea mays) that is widely grown for its large elongated ears of starchy seeds. The seeds, which are also known as corn, are used as food for humans and livestock and as a source of biofuel and can be processed into a wide range of useful chemicals.",
+        "price": "70",
+        "qantity": "20 kg",
+        "supplier": "Hamid Agro Farm"
+    },
+    {   "id": 5,
+        "vegename": "Cabbage",
+        "photoURL": "https://ibb.co/2k1L9dG",
+        "description": "Cabbage, comprising several cultivars of Brassica oleracea, is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage",
+        "price": "40",
+        "qantity": "20 kg",
+        "supplier": "Sadeeq Agro Farm"
+    },
+    {   "id": 6,
+        "vegename": "Cucumber",
+        "photoURL": "https://ibb.co/3CZK7Lw",
+        "description": "Cucumber (Cucumis sativus) is a widely-cultivated creeping vine plant in the Cucurbitaceae family that bears usually cylindrical fruits, which are used as vegetables.",
+        "price": "50",
+        "qantity": "20 kg",
+        "supplier": "Hamid Agro Farm"
+    }
+]
+
+
+
+
+
+
