@@ -1,72 +1,67 @@
 [
-    {   "_id": 1,
+    {
         "vegename": "Potato",
-        "image": "https://ibb.co/f8J6X1Z",
+        "image": "https://i.ibb.co/hX0Qg7r/potato.png",
         "description": "Potato plants are herbaceous perennials that grow about 60 cm (24 in) high, depending on variety, with the leaves dying back after flowering, fruiting and tuber formation. They bear white, pink, red, blue, or purple flowers with yellow stamens.",
         "price": "30",
         "quantity": "20 kg",
         "supplier": "Sadeeq Agro Farm"
     },
-    {   "_id": 2,
+    {
         "vegename": "Onion",
-        "image": "https://ibb.co/Lv80qGB",
+        "image": "https://i.ibb.co/zNrmLkC/onion.png",
         "description": "Onions contain organic sulfur compounds. These compounds are the reason why onions have such a sharp, strong taste and smell. Organic sulfur compounds help reduce the level of cholesterol in your body and may also help break down blood clots, lowering your risk for heart disease and stroke.",
         "price": "80",
         "quantity": "20 kg",
         "supplier": "Hamid Agro Farm"
     },
-    {   "_id": 3,
+    {
         "vegename": "Tomato",
-        "image": "https://ibb.co/3SHW5WV",
+        "image": "https://i.ibb.co/DwnkPkm/tomato.png",
         "description": "The tomato is the edible berry of the plant Solanum lycopersicum, commonly known as the tomato plant. The species originated in western South America and Central America. The Mexican Nahuatl word tomatl gave rise to the Spanish word tomate, from which the English word tomato derived.",
         "price": "90",
         "quantity": "20 kg",
         "supplier": "Sadeeq Agro Farm"
     },
-    {   "_id": 4,
+    {
         "vegename": "Corn",
-        "image": "https://ibb.co/RpsFf3z",
+        "image": "https://i.ibb.co/3yj32pB/corn.png",
         "description": "Corn is a tall annual cereal grass (Zea mays) that is widely grown for its large elongated ears of starchy seeds. The seeds, which are also known as corn, are used as food for humans and livestock and as a source of biofuel and can be processed into a wide range of useful chemicals.",
         "price": "70",
         "quantity": "20 kg",
         "supplier": "Hamid Agro Farm"
     },
-    {   "_id": 5,
+    {
         "vegename": "Cabbage",
-        "image": "https://ibb.co/2k1L9dG",
+        "image": "https://i.ibb.co/d5w3TD8/cabbagepng.png",
         "description": "Cabbage, comprising several cultivars of Brassica oleracea, is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage",
         "price": "40",
         "quantity": "20 kg",
         "supplier": "Sadeeq Agro Farm"
     },
-    {   "_id": 6,
+    {
         "vegename": "Cucumber",
-        "image": "https://ibb.co/3CZK7Lw",
+        "image": "https://i.ibb.co/LZ7K82M/cucumber.png",
         "description": "Cucumber (Cucumis sativus) is a widely-cultivated creeping vine plant in the Cucurbitaceae family that bears usually cylindrical fruits, which are used as vegetables.",
         "price": "50",
         "quantity": "20 kg",
         "supplier": "Hamid Agro Farm"
     },
-    {   "_id": 7,
+    {
         "vegename": "Radish",
-        "image": "https://ibb.co/5TwNJLt",
+        "image": "https://i.ibb.co/K6SM8WR/radish.png",
         "description": "Radishes are a group of root vegetables with light-colored, crunchy flesh, variable skin color, and an almost spicy, peppery taste. They vary in shape from short and round to long and narrow, and the skin can be red, black, white, yellow, pink, or purple.",
         "price": "30",
         "quantity": "20 kg",
         "supplier": "Sadeeq Agro Farm"
     },
-    {   "_id": 8,
+    {
         "vegename": "Cauliflower",
-        "image": "https://ibb.co/CtTMxVQ",
+        "image": "https://i.ibb.co/thWxyYD/couliflower.png",
         "description": "Cauliflower is one of several vegetables in the species Brassica oleracea in the genus Brassica, which is in the Brassicaceae (or mustard) family.It also contains unique plant compounds that may reduce the risk of several diseases, including heart disease and cancer.",
         "price": "40",
         "quantity": "20 kg",
         "supplier": "Hamid Agro Farm"
     }
 ]
-
-
-
-
-
 

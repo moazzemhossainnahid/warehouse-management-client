@@ -7,9 +7,9 @@ const Inventory = () => {
     const [vegetables] = useVegetable();
     console.log(vegetables);
     return (
-        <div>
-            <h3>This is Inventory: {vegetables.length}</h3>
-            <div className="">
+        <div className='container mx-auto'>
+            <h3 className='text-3xl font-bold py-5'>All Inventory</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {
                     vegetables.map(vtable => <Vegetables vegetable={vtable} key={vtable._id}/>)
                 }

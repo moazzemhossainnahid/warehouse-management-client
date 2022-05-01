@@ -1,12 +1,11 @@
 import React from 'react';
 
-const Vegetables = ({vegetable}) => {
+const HomeVegetable = ({vegetable}) => {
     const {vegename, image, description, price, quantity, supplier} = vegetable;
     return (
-        <section className="mb-32 mt-16 text-gray-800 text-center">
-            <div className="">
+        <div>
 
-            <div className="mb-6 lg:mb-0">
+            <div className="mb-6 my-20 lg:mb-0">
                 <div className="relative block p-3 bg-white rounded-lg shadow-lg">
                 <div className="flex">
                     <div
@@ -34,10 +33,8 @@ const Vegetables = ({vegetable}) => {
                 </div>
             </div>
 
-            </div>
-
-        </section>
+        </div>
     );
 };
 
-export default Vegetables;
+export default HomeVegetable;
