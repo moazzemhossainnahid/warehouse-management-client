@@ -11,7 +11,7 @@ const HomeVegetable = ({vegetable}) => {
                 <div className="relative block p-3 bg-white rounded-lg shadow-lg">
                 <div className="flex">
                     <div
-                    className="relative overflow-hidden bg-no-repeat mx-auto w-full bg-cover relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+                    className="relative overflow-hidden bg-no-repeat mx-auto w-full bg-cover shadow-lg rounded-lg -mt-4"
                     data-mdb-ripple="true" data-mdb-ripple-color="light">
                     <img src={image} alt="" className="w-96 h-80 mx-auto" />
                     <a href="#!">

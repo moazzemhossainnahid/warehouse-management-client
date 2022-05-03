@@ -12,7 +12,7 @@ const Vegetables = ({vegetable}) => {
                 <div className="relative block p-3 bg-white rounded-lg shadow-lg">
                 <div className="flex">
                     <div
-                    className="relative overflow-hidden bg-no-repeat mx-auto w-full bg-cover relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+                    className="relative overflow-hidden bg-no-repeat mx-auto w-full shadow-lg rounded-lg -mt-4"
                     data-mdb-ripple="true" data-mdb-ripple-color="light">
                     <img src={image} alt="" className="w-96 h-80 mx-auto" />
                     <a href="#!">
@@ -29,7 +29,7 @@ const Vegetables = ({vegetable}) => {
                     </p>
                     <p className="mb-2 font-semibold text-gray-700 pb-2">Quantity: {quantity}</p>
                     <p className="mb-2 font-semibold text-gray-600 pb-2">Supplier: {supplier}</p>
-                    <p className="mb-2 pb-2">{description.slice(0,120)}</p>
+                    <p style={{overflowWrap: 'break-word'}} className="mb-2 pb-2">{description.slice(0,120)}</p>
                     <button onClick={() => {navigate(`/inventory/${_id}`)}} className='flex w-full justify-center px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out'>Inventory Details</button>
                 </div>
                 </div>
