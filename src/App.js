@@ -13,6 +13,9 @@ import DashBoard from './components/Pages/DashBoard/DashBoard';
 import Inventory from './components/Pages/Inventory/Inventory';
 import { ToastContainer } from 'react-toastify';
 import Footer from './components/SharedPages/Footer/Footer';
+import ManageInventory from './components/Pages/Inventory/ManageInventory/ManageInventory';
+import InventoryDetail from './components/Pages/Inventory/InventoryDetail/InventoryDetail';
+import AddInventory from './components/Pages/Inventory/AddInventory/AddInventory';
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/dashboard' element={<DashBoard/>}/>
         <Route path='/inventory' element={<Inventory/>}/>
+        <Route path='/manageinventory' element={<RequireAuth><ManageInventory/></RequireAuth>}/>
+        <Route path='/addinventory' element={<RequireAuth><AddInventory/></RequireAuth>}/>
+        <Route path='/inventory/:id' element={<RequireAuth><InventoryDetail/></RequireAuth>}/>
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/about' element={<RequireAuth><About/></RequireAuth>}/>
         <Route path='/contact' element={<Contact/>}/>

@@ -5,7 +5,6 @@ import Vegetables from './Vegetables/Vegetables';
 
 const Inventory = () => {
     const [vegetables] = useVegetable();
-    console.log(vegetables);
     return (
         <div className='container mx-auto'>
             <h3 className='text-3xl font-bold py-5'>All Inventory</h3>

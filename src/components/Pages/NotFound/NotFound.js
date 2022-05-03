@@ -1,10 +1,12 @@
 import React from 'react';
 import './NotFound.css';
 
+import Image from '../../../images/CodePen-404-Page.gif';
+
 const NotFound = () => {
     return (
         <div>
-            <h3>404, Page Not Found</h3>
+            <img src={Image} alt="404" className="w-full h-full object-cover" />
         </div>
     );
 };

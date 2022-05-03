@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Vegetables = ({vegetable}) => {
-    const {vegename, image, description, price, quantity, supplier} = vegetable;
+    const {_id, vegename, image, description, price, quantity, supplier} = vegetable;
+    const navigate = useNavigate();
     return (
         <section className="mb-32 mt-16 text-gray-800 text-center">
             <div className="">
@@ -28,8 +30,7 @@ const Vegetables = ({vegetable}) => {
                     <p className="mb-2 font-semibold text-gray-700 pb-2">Quantity: {quantity}</p>
                     <p className="mb-2 font-semibold text-gray-600 pb-2">Supplier: {supplier}</p>
                     <p className="mb-2 pb-2">{description.slice(0,120)}</p>
-                    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light"
-                    className="inline-block flex justify-center px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Manage Inventory</a>
+                    <button onClick={() => {navigate(`/inventory/${_id}`)}} className='flex w-full justify-center px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out'>Inventory Details</button>
                 </div>
                 </div>
             </div>
