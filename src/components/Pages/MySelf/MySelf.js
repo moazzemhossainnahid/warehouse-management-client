@@ -1,6 +1,7 @@
 import React from 'react';
 import './MySelf.css';
 
+import nhd from '../../../images/nhd.jpg';
 const MySelf = () => {
     return (
 
@@ -12,27 +13,18 @@ const MySelf = () => {
     <div class="block rounded-lg shadow-lg bg-white">
       <div class="flex flex-wrap items-center">
         <div class="grow-0 shrink-0 basis-auto block lg:flex w-full lg:w-6/12 xl:w-4/12">
-          <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/027.jpg" alt="Trendy Pants and Shoes"
+          <img className="object-cover hover:shadow-lg" src={nhd} alt="Trendy Pants and Shoes"
             class="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg" />
         </div>
         <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 xl:w-8/12">
           <div class="px-6 py-12 md:px-12">
-            <h2 class="text-3xl font-bold mb-2 text-blue-600">Anna Doe</h2>
-            <p class="font-semibold mb-4">Graphic designer</p>
+            <h2 class="text-3xl font-bold mb-2 text-blue-600">MD NAHID</h2>
+            <p class="font-semibold mb-4">Junior Web Developer</p>
             <p class="text-gray-500 mb-6">
-              Nunc tincidunt vulputate elit. Mauris varius purus malesuada neque iaculis
-              malesuada. Aenean gravida magna orci, non efficitur est porta id. Donec magna
-              diam.
+              Hey There, i am Moazzem Hossain Nahid. i am a Junior Web Developer from Programming Hero Community. i have learn Html, css, JavaScript, Bootstrap, jQuery, React, ExpressJS etc.
             </p>
             <p class="text-gray-500 mb-6">
-              Ad, at blanditiis quaerat laborum officia incidunt cupiditate dignissimos
-              voluptates eius aliquid minus praesentium! Perferendis et totam ipsum ex aut earum
-              libero accusamus voluptas quod numquam saepe, consequuntur nihil quia tenetur
-              consequatur. Quis, explicabo deserunt quasi assumenda ea maiores nulla, et dolor
-              saepe praesentium natus error reiciendis voluptas iste. Esse, laudantium ipsum
-              animi, quos voluptatibus atque vero repellat sit eligendi autem maiores quasi cum
-              aperiam. Aperiam rerum culpa accusantium, ducimus deserunt aliquid alias vitae
-              quasi corporis placeat vel maiores explicabo commodi!
+              i have a goal for being a full stact web Developer asap. i want to develop both client and server software.
             </p>
             <ul class="flex justify-center md:justify-start">
               <li>

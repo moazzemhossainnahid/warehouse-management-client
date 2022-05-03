@@ -6,6 +6,7 @@ import HomeVegetable from '../Inventory/Vegetables/HomeVegetable';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
 import Team from '../Team/Team';
+import MySelf from '../MySelf/MySelf';
 
 
 const Home = () => {
@@ -56,6 +57,7 @@ const Home = () => {
           </div>
         </section>
         <Team/>
+        <MySelf/>
       </div>
     );
 };
