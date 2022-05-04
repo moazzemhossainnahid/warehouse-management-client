@@ -6,7 +6,6 @@ import './SignIn.css';
 import Google from '../../../images/google-logo.png';
 import Github from '../../../images/github-logo.png';
 import useFirebase from '../../Hooks/useFirebase';
-import { ToastContainer } from 'react-toastify';
 
 const SignIn = () => {
     const {handleGoogleSignin,handleGithubSignin, handleSigninForm,handlePasswordReset,handleEmailBlur,handlePasswordBlur} = useFirebase();
@@ -103,7 +102,6 @@ const SignIn = () => {
         <span className="text-xl">Continue With Github</span>
       </div>
   </div>
-  <ToastContainer/>
 </div>
     );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import './Contact.css';
 
 const Contact = () => {
+
     return (
       <div className=" my-24 px-6 mx-auto">
 
@@ -118,9 +119,9 @@ const Contact = () => {
           </div>
         </div>
     
+
       </section>
       {/*Section: Design Block*/}
-    
     </div>
     );
 };

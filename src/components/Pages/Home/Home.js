@@ -10,7 +10,7 @@ import MySelf from '../MySelf/MySelf';
 
 
 const Home = () => {
-  const [vegetables] = useVegetable();
+  const {vegetables} = useVegetable();
   const navigate = useNavigate();
     const el = useRef(null);
     useEffect( () => {

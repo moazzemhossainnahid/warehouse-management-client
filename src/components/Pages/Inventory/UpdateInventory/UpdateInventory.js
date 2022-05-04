@@ -1,25 +1,36 @@
-
-import React from 'react';
-import './AddInventory.css';
+import React, { useEffect, useState } from 'react';
+import './UpdateInventory.css';
 import { useForm } from "react-hook-form";
+import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
-const AddInventory = () => {
+const UpdateInventory = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
-        const url = `http://localhost:5000/inventory`;
+    const {id} = useParams();
+    const [inventory, setInventory] = useState({});
+
+    useEffect( () => {
+        const url = `http://localhost:5000/inventory/${id}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setInventory(data))
+    },[id]);
+
+    const onSubmit = updatedInventory => {
+        const url = `http://localhost:5000/inventory/${id}`;
         fetch(url, {
-            method:'POST', headers: {
+            method:'PUT', headers: {
                 'content-type':'application/json'
-            }, body: JSON.stringify(data)
+            }, body: JSON.stringify(updatedInventory)
         })
         .then(res => res.json())
-        toast.success("Added Successfully");
+        toast.success("Updated Successfully");
     }
-    
+
     return (
         <div className="block mx-auto p-6 my-36 rounded-lg shadow-lg bg-purple-200 max-w-md">
-        <h3 className="text-3xl bg-amber-300 shadow py-5">Add Inventory</h3>
+        <h3 className="text-3xl bg-amber-300 shadow py-5">Update Inventory</h3>
+        <h4 className="text-2xl font-bold py-3 shadow ">{inventory.vegename}</h4>
 
   <form onSubmit={handleSubmit(onSubmit)} className='p-4'>
     
@@ -166,10 +177,10 @@ const AddInventory = () => {
       active:bg-blue-800 active:shadow-lg
       transition
       duration-150
-      ease-in-out">Add Item</button>
+      ease-in-out">Update Item</button>
   </form>
 </div>
     );
 };
 
-export default AddInventory;
+export default UpdateInventory;

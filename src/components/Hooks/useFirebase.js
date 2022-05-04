@@ -2,7 +2,6 @@ import { signOut } from 'firebase/auth';
 import { useState } from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 const useFirebase = () => {
     const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
@@ -94,7 +93,6 @@ const useFirebase = () => {
 
     const handlePasswordReset = async() => {
         await sendPasswordResetEmail(email);
-        toast('Email Submitted')
     }
 
     return {

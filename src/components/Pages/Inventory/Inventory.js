@@ -4,7 +4,7 @@ import './Inventory.css';
 import Vegetables from './Vegetables/Vegetables';
 
 const Inventory = () => {
-    const [vegetables] = useVegetable();
+    const {vegetables} = useVegetable();
     return (
         <div className='container mx-auto'>
             <h3 className='text-3xl font-bold py-5 my-5'>All Inventory</h3>
