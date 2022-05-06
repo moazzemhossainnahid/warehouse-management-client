@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './InventoryDetail.css';
 
 const InventoryDetail = () => {
+
     const {id} = useParams();
     const [inventory, setInventory] = useState({});
-    const [delivery, setDelivery] = useState(20);
+    const [delivery, setDelivery] = useState();
     const [update, setUpdate] = useState(0);
-    // const [quantity, setQuantity] = useState(0);
+
     useEffect( () => {
         const url = `http://localhost:5000/inventory/${id}`;
         fetch(url)
@@ -15,23 +16,21 @@ const InventoryDetail = () => {
         .then(data => setInventory(data))
     },[id]);
 
+const navigate = useNavigate();
+
     const handleDelivery = (quantity) => {
-        const newQuantity = parseInt(quantity);
-        const proceed = window.confirm("Are you want to Deliver..?");
-
-        if(proceed){
-            setDelivery(newQuantity - 1);
-        }
+        setDelivery(quantity - 1);
     }
 
-    const handleUpdate = (quantity) => {
-        const newQuantity = parseInt(quantity);
-        setUpdate(newQuantity + 1);
+    const handleUpdate = () => {
+        navigate(`/updatequantity/${id}`)
     }
+
+    
     const {vegename, image, description, price, quantity, supplier} = inventory;
     return (
         <div className='py-10'>
-            <section className="mb-32 mt-16 w-2/4 mx-auto text-gray-800 text-center">
+            <section className="mb-32 mt-16 w-5/6 md:w-2/4 mx-auto text-gray-800 text-center">
             <div className="">
 
             <div className="mb-6 lg:mb-0">
@@ -58,7 +57,7 @@ const InventoryDetail = () => {
                     <p className="mb-2 pb-2">{description}</p>
                     <div className="flex justify-around items-center">
                     <button onClick={() => handleDelivery(quantity)} className='flex justify-center px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-emerald-700 hover:shadow-lg focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out'>Delivery</button>
-                    <button onClick={() => handleUpdate(quantity)} className='flex justify-center px-6 py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out'>Update</button>
+                    <button onClick={() => handleUpdate()} className='flex justify-center px-6 py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out'>Update Quantity</button>
                     </div>
                 </div>
                 </div>

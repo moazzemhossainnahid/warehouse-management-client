@@ -16,12 +16,12 @@ const UpdateInventory = () => {
         .then(data => setInventory(data))
     },[id]);
 
-    const onSubmit = updatedInventory => {
+    const onSubmit = quantity => {
         const url = `http://localhost:5000/inventory/${id}`;
         fetch(url, {
             method:'PUT', headers: {
                 'content-type':'application/json'
-            }, body: JSON.stringify(updatedInventory)
+            }, body: JSON.stringify(quantity)
         })
         .then(res => res.json())
         toast.success("Updated Successfully");

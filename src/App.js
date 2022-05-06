@@ -17,6 +17,7 @@ import InventoryDetail from './components/Pages/Inventory/InventoryDetail/Invent
 import AddInventory from './components/Pages/Inventory/AddInventory/AddInventory';
 import { Toaster } from 'react-hot-toast';
 import UpdateInventory from './components/Pages/Inventory/UpdateInventory/UpdateInventory';
+import UpdateQuantity from './components/Pages/Inventory/UpdateQuantity/UpdateQuantity';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/inventory' element={<Inventory/>}/>
         <Route path='/addinventory' element={<RequireAuth><AddInventory/></RequireAuth>}/>
         <Route path='/updateinventory/:id' element={<RequireAuth><UpdateInventory/></RequireAuth>}/>
+        <Route path='/updatequantity/:id' element={<RequireAuth><UpdateQuantity/></RequireAuth>}/>
         <Route path='/manageinventory' element={<RequireAuth><ManageInventory/></RequireAuth>}/>
         <Route path='/inventory/:id' element={<RequireAuth><InventoryDetail/></RequireAuth>}/>
         <Route path='/blogs' element={<Blogs/>}/>
