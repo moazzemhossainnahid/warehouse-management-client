@@ -16,6 +16,7 @@ import InventoryDetail from './components/Pages/Inventory/InventoryDetail/Invent
 import AddInventory from './components/Pages/Inventory/AddInventory/AddInventory';
 import { Toaster } from 'react-hot-toast';
 import UpdateInventory from './components/Pages/Inventory/UpdateInventory/UpdateInventory';
+import MyItems from './components/Pages/Inventory/MyItems/MyItems';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/inventory' element={<Inventory/>}/>
         <Route path='/addinventory' element={<RequireAuth><AddInventory/></RequireAuth>}/>
+        <Route path='/myitems' element={<RequireAuth><MyItems/></RequireAuth>}/>
         <Route path='/updateinventory/:id' element={<RequireAuth><UpdateInventory/></RequireAuth>}/>
         <Route path='/manageinventory' element={<RequireAuth><ManageInventory/></RequireAuth>}/>
         <Route path='/inventory/:id' element={<RequireAuth><InventoryDetail/></RequireAuth>}/>

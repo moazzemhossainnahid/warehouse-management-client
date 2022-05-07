@@ -45,13 +45,13 @@ const AddInventory = () => {
     </div>
     
     <div className="form-group mb-6">
-      <input {...register("email", { required: true})} type="email" value={user?.email} readOnly disabled className="form-control block
+      <input {...register("email", { required: true})} type="email" value={user?.email} className="form-control block
         w-full
         px-3
         py-1.5
         text-base
         font-normal
-        text-gray-600
+        text-gray-700
         bg-white bg-clip-padding
         border border-solid border-gray-300
         rounded

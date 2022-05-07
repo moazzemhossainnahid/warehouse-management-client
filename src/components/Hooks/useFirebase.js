@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import { useState } from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -63,13 +64,15 @@ const useFirebase = () => {
 
     }
 
-    const handleSigninForm = (event) => {
+    const handleSigninForm = async(event) => {
         event.preventDefault();
 
-        signInWithEmailAndPassword(email, password)
-        .then(() => {
-            navigate(from, {replace:true})
-        })
+        await signInWithEmailAndPassword(email, password)
+        const {data} = await axios.post('http://localhost:5000/login', {email});
+        localStorage.setItem('accessToken' , data);
+        
+        navigate(from, {replace:true})
+
         event.target.reset();
 
     }
