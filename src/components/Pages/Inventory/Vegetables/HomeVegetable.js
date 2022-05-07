@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const HomeVegetable = ({vegetable}) => {
-    const {_id, vegename, image, description, price, quantity, supplier} = vegetable;
+    const {_id, vegename, image, description, price, quantity, sold, supplier} = vegetable;
     const navigate = useNavigate();
     return (
         <div>
@@ -27,6 +27,7 @@ const HomeVegetable = ({vegetable}) => {
                     <small>Price: ${price} /kg </small>
                     </p>
                     <p className="mb-2 font-semibold text-gray-700 pb-2">Quantity: {quantity} kg</p>
+                    <p className="mb-2 font-semibold text-gray-700 pb-2">Sold: {sold} kg</p>
                     <p className="mb-2 font-semibold text-gray-600 pb-2">Supplier: {supplier}</p>
                     <p className="mb-2 pb-2">{description.slice(0,120)}</p>
                     <button onClick={() => {navigate(`/inventory/${_id}`)}} className='flex w-full justify-center px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out'>Inventory Details</button>

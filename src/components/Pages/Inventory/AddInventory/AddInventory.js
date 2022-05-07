@@ -3,9 +3,12 @@ import React from 'react';
 import './AddInventory.css';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
+import useFirebase from '../../../Hooks/useFirebase';
 
 const AddInventory = () => {
     const { register, handleSubmit } = useForm();
+    const {user} = useFirebase();
+    console.log(user);
     const onSubmit = data => {
         const url = `http://localhost:5000/inventory`;
         fetch(url, {
@@ -42,13 +45,13 @@ const AddInventory = () => {
     </div>
     
     <div className="form-group mb-6">
-      <input {...register("email", { required: true})} type="email" className="form-control block
+      <input {...register("email", { required: true})} type="email" value={user?.email} readOnly disabled className="form-control block
         w-full
         px-3
         py-1.5
         text-base
         font-normal
-        text-gray-700
+        text-gray-600
         bg-white bg-clip-padding
         border border-solid border-gray-300
         rounded
@@ -79,6 +82,23 @@ const AddInventory = () => {
     
     <div className="form-group mb-6">
       <input {...register("quantity", { required: true})} type="number" className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput125"
+        placeholder="Enter Quantity"/>
+    </div>
+    <div className="form-group mb-6">
+      <input {...register("sold", { required: true})} value='0' type="number" className="form-control block
         w-full
         px-3
         py-1.5

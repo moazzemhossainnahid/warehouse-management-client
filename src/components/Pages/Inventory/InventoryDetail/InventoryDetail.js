@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { useParams } from 'react-router-dom';
 import './InventoryDetail.css';
 
 const InventoryDetail = () => {
-
+    const { register, handleSubmit, reset } = useForm();
     const {id} = useParams();
     const [inventory, setInventory] = useState({});
-    const [delivery, setDelivery] = useState();
-    const [update, setUpdate] = useState(0);
+
 
     useEffect( () => {
         const url = `http://localhost:5000/inventory/${id}`;
@@ -16,18 +17,47 @@ const InventoryDetail = () => {
         .then(data => setInventory(data))
     },[id]);
 
-const navigate = useNavigate();
 
-    const handleDelivery = (quantity) => {
-        setDelivery(quantity - 1);
+    const handleDelivery = () => {
+        const {quantity, sold, ...rest} = inventory;
+        const newQuantity = parseInt(quantity) - 1;
+        const newSold = parseInt(sold) + 1;
+        const newInventory = {quantity: newQuantity, sold: newSold, ...rest};
+        if(quantity > 0){
+            setInventory(newInventory);
+            
+            const url = `http://localhost:5000/updatequantity/${id}`;
+            fetch(url, {method: 'PUT', headers: {'content-type':'application/json'}, body: JSON.stringify({newQuantity, newSold})})
+            .then(res => res.json())
+
+            toast.success("Delivered Successfully");
+        }else{
+            toast.error("Quantity Not Available");
+        }
+
+
     }
 
-    const handleUpdate = () => {
-        navigate(`/updatequantity/${id}`)
+    const onSubmit = (data) => {
+        
+        const quantityValue = data.quantity;
+        const {quantity, ...rest} = inventory;
+        const newQuantity = parseInt(quantity) + parseInt(quantityValue);
+        const newInventory = {quantity: newQuantity, ...rest};
+        setInventory(newInventory);
+        reset();
+
+        const url = `http://localhost:5000/updatequantity/${id}`;
+        fetch(url, {method: 'PUT', headers: {'content-type':'application/json'}, body: JSON.stringify({newQuantity})})
+        .then(res => res.json());
+        toast.success("Quantity Updated Successfully");
+
     }
+
+
 
     
-    const {vegename, image, description, price, quantity, supplier} = inventory;
+    const {vegename, image, description, price, quantity, sold, supplier} = inventory;
     return (
         <div className='py-10'>
             <section className="mb-32 mt-16 w-5/6 md:w-2/4 mx-auto text-gray-800 text-center">
@@ -52,12 +82,37 @@ const navigate = useNavigate();
                     <p className="text-gray-500 text-lg font-bold mb-4">
                     <small>Price: ${price} /kg </small>
                     </p>
-                    <p className="mb-2 font-semibold text-gray-700 pb-2">Quantity: {delivery} kg</p>
+                    <p className="mb-2 font-semibold text-gray-700 pb-2">Quantity: {quantity} kg</p>
+                    <p className="mb-2 font-semibold text-gray-700 pb-2">Sold: {sold} kg</p>
                     <p className="mb-2 font-semibold text-gray-600 pb-2">Supplier: {supplier}</p>
-                    <p className="mb-2 pb-2">{description}</p>
-                    <div className="flex justify-around items-center">
-                    <button onClick={() => handleDelivery(quantity)} className='flex justify-center px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-emerald-700 hover:shadow-lg focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out'>Delivery</button>
-                    <button onClick={() => handleUpdate()} className='flex justify-center px-6 py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out'>Update Quantity</button>
+                    <p style={{overflowWrap: 'break-word'}} className="mb-2 pb-2">{description}</p>
+                    <div className="flex justify-between items-center">
+                    <button onClick={() => handleDelivery(quantity)} className='flex justify-center px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out'>Delivery</button>
+                   
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="flex justify-center items center">
+                        
+                    <input {...register("quantity", { required: true})} type="number" className="form-control block
+                        w-32
+                        px-3
+                        mx-2
+                        py-1.5
+                        text-base
+                        font-normal
+                        text-gray-700
+                        bg-white bg-clip-padding
+                        border border-solid border-gray-700
+                        rounded
+                        transition
+                        ease-in-out
+                        m-0
+                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput125"
+                        placeholder="Quantity"/>
+
+                    <button type='submit' className='flex justify-center px-6 mx-auto py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-emerald-700 hover:shadow-lg focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out'>Update Quantity</button>
+
+                    </div>
+                    </form>
                     </div>
                 </div>
                 </div>

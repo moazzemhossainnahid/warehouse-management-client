@@ -11,7 +11,7 @@ const firebaseConfig = {
   projectId: "vegetables-planet",
   storageBucket: "vegetables-planet.appspot.com",
   messagingSenderId: "654271735289",
-  appId: "1:654271735289:web:b202c64d63cf172d458928"
+  appId: "1:654271735289:web:b202c64d63cf172d458928",
 };
 
 // Initialize Firebase
@@ -19,3 +19,14 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 export default auth;
+
+
+
+
+
+// apiKey: "AIzaSyBSrwsYieKUJv3XsZMmYEaIo7Wm4ttOjSM",
+// authDomain: "vegetables-planet.firebaseapp.com",
+// projectId: "vegetables-planet",
+// storageBucket: "vegetables-planet.appspot.com",
+// messagingSenderId: "654271735289",
+// appId: "1:654271735289:web:b202c64d63cf172d458928",

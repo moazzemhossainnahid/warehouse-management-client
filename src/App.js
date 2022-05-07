@@ -9,7 +9,6 @@ import Header from './components/SharedPages/Header/Header';
 import About from './components/Pages/About/About';
 import Blogs from './components/Pages/Blogs/Blogs';
 import RequireAuth from './components/Hooks/RequireAuth';
-import DashBoard from './components/Pages/DashBoard/DashBoard';
 import Inventory from './components/Pages/Inventory/Inventory';
 import Footer from './components/SharedPages/Footer/Footer';
 import ManageInventory from './components/Pages/Inventory/ManageInventory/ManageInventory';
@@ -17,7 +16,6 @@ import InventoryDetail from './components/Pages/Inventory/InventoryDetail/Invent
 import AddInventory from './components/Pages/Inventory/AddInventory/AddInventory';
 import { Toaster } from 'react-hot-toast';
 import UpdateInventory from './components/Pages/Inventory/UpdateInventory/UpdateInventory';
-import UpdateQuantity from './components/Pages/Inventory/UpdateQuantity/UpdateQuantity';
 
 function App() {
   return (
@@ -25,11 +23,9 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/dashboard' element={<DashBoard/>}/>
         <Route path='/inventory' element={<Inventory/>}/>
         <Route path='/addinventory' element={<RequireAuth><AddInventory/></RequireAuth>}/>
         <Route path='/updateinventory/:id' element={<RequireAuth><UpdateInventory/></RequireAuth>}/>
-        <Route path='/updatequantity/:id' element={<RequireAuth><UpdateQuantity/></RequireAuth>}/>
         <Route path='/manageinventory' element={<RequireAuth><ManageInventory/></RequireAuth>}/>
         <Route path='/inventory/:id' element={<RequireAuth><InventoryDetail/></RequireAuth>}/>
         <Route path='/blogs' element={<Blogs/>}/>
