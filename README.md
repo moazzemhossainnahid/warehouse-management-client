@@ -23,3 +23,21 @@ This website is an inventory management website. it has some vegetables item tha
 
 * you can see about us page for more details
 
+
+### What we use for this website
+
+* @iconscout/react-unicons
+* axios
+* firebase
+* react
+* react-dom
+* react-firebase-hooks
+* react-hook-form
+* react-hot-toast
+* react-router-dom
+* react-scripts
+* tw-elements
+* typed.js
+* url
+* web-vitals
+
