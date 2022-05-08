@@ -11,7 +11,7 @@ const MyItems = () => {
         
         const getItems = async() => {
             const email = user.email;
-            const url = `http://localhost:5000/myInventories?email=${email}`;
+            const url = `https://hidden-castle-92760.herokuapp.com/myInventories?email=${email}`;
             const {data} = await axios.get(url, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -27,7 +27,7 @@ const MyItems = () => {
 
     return (
         <div className='container mx-auto py-10'>
-            <h3 className='py-5 text-3xl font-semibold'>My Items: {items.length}</h3>
+            <h3 className='py-5 text-3xl font-semibold'>My <span className="text-purple-700">Items</span>: {items.length}</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {

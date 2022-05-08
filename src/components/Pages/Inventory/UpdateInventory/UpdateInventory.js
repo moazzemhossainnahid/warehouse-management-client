@@ -3,21 +3,23 @@ import './UpdateInventory.css';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import useFirebase from '../../../Hooks/useFirebase';
 
 const UpdateInventory = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const {id} = useParams();
     const [inventory, setInventory] = useState({});
+    const {user} = useFirebase();
 
     useEffect( () => {
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://hidden-castle-92760.herokuapp.com/inventory/${id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setInventory(data))
     },[id]);
 
     const onSubmit = quantity => {
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://hidden-castle-92760.herokuapp.com/inventory/${id}`;
         fetch(url, {
             method:'PUT', headers: {
                 'content-type':'application/json'
@@ -25,6 +27,7 @@ const UpdateInventory = () => {
         })
         .then(res => res.json())
         toast.success("Updated Successfully");
+        reset();
     }
 
     return (
@@ -53,7 +56,7 @@ const UpdateInventory = () => {
     </div>
     
     <div className="form-group mb-6">
-      <input {...register("email", { required: true})} type="email" className="form-control block
+      <input {...register("email", { required: true})} type="email" value={user?.email} className="form-control block
         w-full
         px-3
         py-1.5

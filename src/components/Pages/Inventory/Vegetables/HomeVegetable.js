@@ -8,7 +8,7 @@ const HomeVegetable = ({vegetable}) => {
         <div>
 
             <div className="mb-6 my-20 lg:mb-0">
-                <div className="relative block p-3 bg-white rounded-lg shadow-lg">
+                <div className="relative block p-3 bg-gray-200 rounded-lg shadow-lg">
                 <div className="flex">
                     <div
                     className="relative overflow-hidden bg-no-repeat mx-auto w-full bg-cover shadow-lg rounded-lg -mt-4"

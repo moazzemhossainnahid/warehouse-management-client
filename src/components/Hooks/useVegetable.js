@@ -4,7 +4,7 @@ const useVegetable = () => {
     const [vegetables, setVegetables] = useState([]);
 
     useEffect( () => {
-        fetch('http://localhost:5000/inventories')
+        fetch('https://hidden-castle-92760.herokuapp.com/inventories')
         .then(res => res.json())
         .then(data => setVegetables(data))
     }, []);

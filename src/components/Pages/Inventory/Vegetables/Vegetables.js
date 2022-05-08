@@ -9,7 +9,7 @@ const Vegetables = ({vegetable}) => {
             <div className="">
 
             <div className="mb-6 lg:mb-0">
-                <div className="relative block p-3 bg-white rounded-lg shadow-lg">
+                <div className="relative block p-3 bg-gray-200 rounded-lg shadow-lg">
                 <div className="flex">
                     <div
                     className="relative overflow-hidden bg-no-repeat mx-auto w-full shadow-lg rounded-lg -mt-4"

@@ -12,7 +12,6 @@ const useFirebase = () => {
     const [user, loading] = useAuthState(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
-    const [displayName, setdisplayName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [conPassword, setConPassword] = useState('');
@@ -23,10 +22,6 @@ const useFirebase = () => {
     const location = useLocation();
 
     let from = location.state?.from?.pathname || '/';
-
-    const handleNameBlur = (event) => {
-        setdisplayName(event.target.value);
-    }
 
     const handleEmailBlur = (event) => {
         setEmail(event.target.value);
@@ -68,9 +63,9 @@ const useFirebase = () => {
         event.preventDefault();
 
         await signInWithEmailAndPassword(email, password)
-        const {data} = await axios.post('http://localhost:5000/login', {email});
+        const {data} = await axios.post('https://hidden-castle-92760.herokuapp.com/login', {email});
         localStorage.setItem('accessToken' , data);
-        
+
         navigate(from, {replace:true})
 
         event.target.reset();
@@ -103,7 +98,6 @@ const useFirebase = () => {
         loading,
         passError,
         conPassError,
-        handleNameBlur,
         handleEmailBlur,
         handlePasswordBlur,
         handleConPassBlur,

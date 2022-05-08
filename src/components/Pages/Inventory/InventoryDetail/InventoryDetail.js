@@ -11,7 +11,7 @@ const InventoryDetail = () => {
 
 
     useEffect( () => {
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://hidden-castle-92760.herokuapp.com/inventory/${id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setInventory(data))
@@ -26,7 +26,7 @@ const InventoryDetail = () => {
         if(quantity > 0){
             setInventory(newInventory);
             
-            const url = `http://localhost:5000/updatequantity/${id}`;
+            const url = `https://hidden-castle-92760.herokuapp.com/updatequantity/${id}`;
             fetch(url, {method: 'PUT', headers: {'content-type':'application/json'}, body: JSON.stringify({newQuantity, newSold})})
             .then(res => res.json())
 
@@ -47,7 +47,7 @@ const InventoryDetail = () => {
         setInventory(newInventory);
         reset();
 
-        const url = `http://localhost:5000/updatequantity/${id}`;
+        const url = `https://hidden-castle-92760.herokuapp.com/updatequantity/${id}`;
         fetch(url, {method: 'PUT', headers: {'content-type':'application/json'}, body: JSON.stringify({newQuantity})})
         .then(res => res.json());
         toast.success("Quantity Updated Successfully");
@@ -64,7 +64,7 @@ const InventoryDetail = () => {
             <div className="">
 
             <div className="mb-6 lg:mb-0">
-                <div className="relative block p-3 bg-white rounded-lg shadow-lg">
+                <div className="relative block p-3 bg-gray-200 rounded-lg shadow-lg">
                 <div className="flex">
                     <div
                     className="w-full relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
@@ -86,14 +86,20 @@ const InventoryDetail = () => {
                     <p className="mb-2 font-semibold text-gray-700 pb-2">Sold: {sold} kg</p>
                     <p className="mb-2 font-semibold text-gray-600 pb-2">Supplier: {supplier}</p>
                     <p style={{overflowWrap: 'break-word'}} className="mb-2 pb-2">{description}</p>
-                    <div className="flex justify-between items-center">
-                    <button onClick={() => handleDelivery(quantity)} className='flex justify-center px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out'>Delivery</button>
-                   
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex justify-center items center">
+                    <div className="flex mx-auto justify-center items-center">
+                    <button onClick={() => handleDelivery(quantity)} className='flex justify-center my-5 px-16 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out'>Delivery</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div className="my-16 bg-black p-5">
+                <h3 className="py-10 text-2xl font-bold text-white">Update Quantity</h3>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="flex flex-col justify-center items-center gap-5">
                         
                     <input {...register("quantity", { required: true})} type="number" className="form-control block
-                        w-32
+                        w-2/4
                         px-3
                         mx-2
                         py-1.5
@@ -107,15 +113,12 @@ const InventoryDetail = () => {
                         ease-in-out
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput125"
-                        placeholder="Quantity"/>
+                        placeholder="Enter Quantity"/>
 
-                    <button type='submit' className='flex justify-center px-6 mx-auto py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-emerald-700 hover:shadow-lg focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out'>Update Quantity</button>
+                    <button type='submit' className=' px-6 py-2.5 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-emerald-700 hover:shadow-lg focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out'>Update Quantity</button>
 
                     </div>
                     </form>
-                    </div>
-                </div>
-                </div>
             </div>
 
             </div>

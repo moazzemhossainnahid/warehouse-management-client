@@ -26,7 +26,7 @@ const Inventory = () => {
             }
 
             <div className='container'>
-            <h3 className='text-3xl font-bold py-5 my-5'>All Inventory</h3>
+            <h3 className='text-3xl font-bold py-5 my-5'>All <span className="text-green-600">Inventory</span></h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
                     vegetables.map(vtable => <Vegetables vegetable={vtable} key={vtable._id}/>)

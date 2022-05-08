@@ -45,7 +45,7 @@ const Home = () => {
 
           <div className="container my-24 px-6 mx-auto">
 
-        <h3 className='text-3xl font-bold py-5'>Our Inventory</h3>
+        <h3 className='text-3xl font-bold py-5'>Our <span className="text-orange-700">Inventory</span></h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                   {
                       newVegetables.map(vtable => <HomeVegetable vegetable={vtable} key={vtable._id}/>)
