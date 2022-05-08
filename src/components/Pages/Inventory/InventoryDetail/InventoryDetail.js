@@ -11,7 +11,7 @@ const InventoryDetail = () => {
 
 
     useEffect( () => {
-        const url = `https://hidden-castle-92760.herokuapp.com/inventory/${id}`;
+        const url = `https://serene-mesa-99604.herokuapp.com/inventory/${id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setInventory(data))
@@ -26,7 +26,7 @@ const InventoryDetail = () => {
         if(quantity > 0){
             setInventory(newInventory);
             
-            const url = `https://hidden-castle-92760.herokuapp.com/updatequantity/${id}`;
+            const url = `https://serene-mesa-99604.herokuapp.com/updatequantity/${id}`;
             fetch(url, {method: 'PUT', headers: {'content-type':'application/json'}, body: JSON.stringify({newQuantity, newSold})})
             .then(res => res.json())
 
@@ -47,7 +47,7 @@ const InventoryDetail = () => {
         setInventory(newInventory);
         reset();
 
-        const url = `https://hidden-castle-92760.herokuapp.com/updatequantity/${id}`;
+        const url = `https://serene-mesa-99604.herokuapp.com/updatequantity/${id}`;
         fetch(url, {method: 'PUT', headers: {'content-type':'application/json'}, body: JSON.stringify({newQuantity})})
         .then(res => res.json());
         toast.success("Quantity Updated Successfully");

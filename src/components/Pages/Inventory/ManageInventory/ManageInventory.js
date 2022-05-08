@@ -15,7 +15,7 @@ const ManageInventory = () => {
         const proceed = window.confirm('Are You Sure to Delete ?')
         if(proceed){
             console.log('deleting with id', id);
-            const url = `https://hidden-castle-92760.herokuapp.com/inventory/${id}`;
+            const url = `https://serene-mesa-99604.herokuapp.com/inventory/${id}`;
             fetch(url, { method: 'DELETE' })
             .then(res => res.json())
             .then(data => {

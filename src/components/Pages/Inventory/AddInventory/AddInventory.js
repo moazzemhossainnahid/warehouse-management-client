@@ -11,7 +11,7 @@ const AddInventory = () => {
     console.log(user);
     const onSubmit = data => {
       const product = {...data, sold: 0};
-        const url = `https://hidden-castle-92760.herokuapp.com/inventory`;
+        const url = `https://serene-mesa-99604.herokuapp.com/inventory`;
         fetch(url, {
             method:'POST', headers: {
                 'content-type':'application/json'

@@ -12,14 +12,14 @@ const UpdateInventory = () => {
     const {user} = useFirebase();
 
     useEffect( () => {
-        const url = `https://hidden-castle-92760.herokuapp.com/inventory/${id}`;
+        const url = `https://serene-mesa-99604.herokuapp.com/inventory/${id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setInventory(data))
     },[id]);
 
     const onSubmit = quantity => {
-        const url = `https://hidden-castle-92760.herokuapp.com/inventory/${id}`;
+        const url = `https://serene-mesa-99604.herokuapp.com/inventory/${id}`;
         fetch(url, {
             method:'PUT', headers: {
                 'content-type':'application/json'

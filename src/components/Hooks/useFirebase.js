@@ -63,7 +63,7 @@ const useFirebase = () => {
         event.preventDefault();
 
         await signInWithEmailAndPassword(email, password)
-        const {data} = await axios.post('https://hidden-castle-92760.herokuapp.com/login', {email});
+        const {data} = await axios.post('https://serene-mesa-99604.herokuapp.com/login', {email});
         localStorage.setItem('accessToken' , data);
 
         navigate(from, {replace:true})
