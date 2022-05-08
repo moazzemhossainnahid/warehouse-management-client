@@ -8,7 +8,7 @@ import useFirebase from '../../../Hooks/useFirebase';
 const AddInventory = () => {
     const { register, handleSubmit, reset } = useForm();
     const {user} = useFirebase();
-    console.log(user);
+    // console.log(user);
     const onSubmit = data => {
       const product = {...data, sold: 0};
         const url = `https://serene-mesa-99604.herokuapp.com/inventory`;
@@ -22,6 +22,7 @@ const AddInventory = () => {
         reset();
     }
     
+    console.log(user);
     return (
         <div className="block mx-auto p-6 my-36 rounded-lg shadow-lg bg-purple-200 max-w-md">
         <h3 className="text-3xl bg-amber-300 shadow py-5">Add Inventory</h3>

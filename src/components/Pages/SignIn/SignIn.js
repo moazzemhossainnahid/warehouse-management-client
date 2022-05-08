@@ -97,10 +97,10 @@ const SignIn = () => {
         <img className='w-1/6' src={Google} alt="" />
         <span className="text-xl">Continue With Google</span>
       </div>
-      <div onClick={handleGithubSignin} className="google cursor-pointer mt-2 bg-gray-400 hover:bg-gray-500 hover:text-white border rounded flex justify-center items-center">
+      {/* <div onClick={handleGithubSignin} className="google cursor-pointer mt-2 bg-gray-400 hover:bg-gray-500 hover:text-white border rounded flex justify-center items-center">
         <img className='w-1/6 p-2' src={Github} alt="" />
         <span className="text-xl">Continue With Github</span>
-      </div>
+      </div> */}
   </div>
 </div>
     );

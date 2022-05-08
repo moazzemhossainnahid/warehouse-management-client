@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -22,6 +22,19 @@ const useFirebase = () => {
     const location = useLocation();
 
     let from = location.state?.from?.pathname || '/';
+
+    useEffect(() => {
+        const genToken = async() => {
+            const email = user?.email;
+            const {data} = await axios.post('https://serene-mesa-99604.herokuapp.com/login', {email});
+            localStorage.setItem('accessToken' , data);
+            
+        }
+        if(user){
+            genToken();
+            
+        }
+    }, [user]);
 
     const handleEmailBlur = (event) => {
         setEmail(event.target.value);
@@ -61,25 +74,24 @@ const useFirebase = () => {
 
     const handleSigninForm = async(event) => {
         event.preventDefault();
-
         await signInWithEmailAndPassword(email, password)
-        const {data} = await axios.post('https://serene-mesa-99604.herokuapp.com/login', {email});
-        localStorage.setItem('accessToken' , data);
-
-        navigate(from, {replace:true})
+        .then(() => {
+            navigate(from, {replace:true})
+        })
 
         event.target.reset();
 
     }
 
-    const handleGoogleSignin = () => {
-        signInWithGoogle()
+    const handleGoogleSignin = async() => {
+        await signInWithGoogle()
         .then(() => {
             navigate(from, {replace:true})
         })
+
     }
-    const handleGithubSignin = () => {
-        signInWithGithub()
+    const handleGithubSignin = async() => {
+        await signInWithGithub()
         .then(() => {
             navigate(from, {replace:true})
         })

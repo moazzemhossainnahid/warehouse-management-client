@@ -10,7 +10,8 @@ const MyItems = () => {
     useEffect(() => {
         
         const getItems = async() => {
-            const email = user.email;
+            const email = user?.email;
+            console.log(email);
             const url = `https://serene-mesa-99604.herokuapp.com/myInventories?email=${email}`;
             const {data} = await axios.get(url, {
                 headers: {
